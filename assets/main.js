@@ -7,7 +7,7 @@ var questions = [
     {
         question: "What tag is availabe",
         choices:["h1", "h2", "h3", "h4"],
-        answer: "react",
+        answer: "h1",
     },
     {
         question: "What is the best framework",
@@ -22,38 +22,73 @@ var questions = [
 ];
 
 var currentQuestionIndex = 0;
+var buttonDiv = document.getElementById("button-placholder")
+
 var startButton = document.getElementById("start-button");
+var correctAnswer = document.getElementById("1");
 
+var score = 0;
+var scoreKeeper = document.getElementById("score");
+scoreKeeper.textContent = score;
+
+//Generate question function
 function generateQuestion(){
-    //var currentQuestion = questions[currentQuestionIndex];
+    var currentQuestion = questions[currentQuestionIndex];
     var questionEl = document.getElementById("question-text");
-    var choice1 = document.getElementById("choice1");
-    var choice2 = document.getElementById("choice2");
-    var choice3 = document.getElementById("choice3");
-    var choice4 = document.getElementById("choice4");
+    questionEl.textContent = currentQuestion.question;
 
 
-    for(var i = 0; i < questions.length; i++){
-    questionEl.textContent = questions[i].question;
-    choice1.textContent = questions[i].choices[0];
-    choice2.textContent = questions[i].choices[1];
-    choice3.textContent = questions[i].choices[2];
-    choice4.textContent = questions[i].choices[3];
+        for(var i = 0; i < currentQuestion.choices.length; i++){
+            var choicesButton = document.createElement("button");
+            choicesButton.textContent = i + 1 + ". " + currentQuestion.choices[i]
+            document.getElementById("button-placholder").appendChild(choicesButton);
+            choicesButton.setAttribute("id", currentQuestion.choices[i])
+        }
+        checkAnswer();
+
     }
 
-    // if right answer
-    // currentquestion by 1
-    // 
-    if()
 
+
+function checkAnswer(event){ 
+    if(event.target.value == currentQuestion.answer){
+        currentQuestionIndex++
+        score++
+        generateNextQuestion();
+        button.style.color = "red";
+    }
 
 }
 
+
+
+
+function generateNextQuestion(){
+    currentQuestion = questions[currentQuestionIndex];
+    questionEl = document.getElementById("question-text");
+    questionEl.textContent = currentQuestion.question;
+}
+
+
 startButton.addEventListener("click", function(){
     generateQuestion();
-    startTimer();
+    startButton.style.display = "none";
+
+    //startTimer();
 })
+
+
+   // // if right answer
+    // currentquestion by 1
+    // 
+
+
 
 //when start
 // call function
 //time
+
+
+
+
+// if event.target == answer then -> do this
