@@ -5,7 +5,7 @@ var questions = [
         answer: "react",
     },
     {
-        question: "What tag is availabe",
+        question: "What tag is the largest",
         choices:["h1", "h2", "h3", "h4"],
         answer: "h1",
     },
@@ -25,7 +25,6 @@ var currentQuestionIndex = 0;
 var buttonDiv = document.getElementById("button-placholder")
 
 var startButton = document.getElementById("start-button");
-var correctAnswer = document.getElementById("1");
 
 var score = 0;
 var scoreKeeper = document.getElementById("score");
@@ -42,31 +41,50 @@ function generateQuestion(){
             var choicesButton = document.createElement("button");
             choicesButton.textContent = i + 1 + ". " + currentQuestion.choices[i]
             document.getElementById("button-placholder").appendChild(choicesButton);
-            choicesButton.setAttribute("id", currentQuestion.choices[i])
+            
+            if(currentQuestion.choices[i] === currentQuestion.answer){
+                choicesButton.setAttribute("id", true);
+                choicesButton.setAttribute("class", "rightAnswer")
+            } else {
+                choicesButton.setAttribute("class", false);
+            }
         }
-        checkAnswer();
+
+
+        var answerEl = document.getElementById("true");
+        var AnswerAttr = answerEl.getAttributeNode("id").value;
+
+        answerEl.addEventListener("click", function checkAnswer(){ 
+            if(AnswerAttr){
+
+       
+                generateNextQuestion();
+            }
+        
+        })
+
 
     }
-
-
-
-function checkAnswer(event){ 
-    if(event.target.value == currentQuestion.answer){
-        currentQuestionIndex++
-        score++
-        generateNextQuestion();
-        button.style.color = "red";
-    }
-
-}
-
-
 
 
 function generateNextQuestion(){
-    currentQuestion = questions[currentQuestionIndex];
-    questionEl = document.getElementById("question-text");
-    questionEl.textContent = currentQuestion.question;
+    score++;
+    currentQuestionIndex++;
+    generateQuestion();
+    // currentQuestion = questions[currentQuestionIndex];
+    // questionEl = document.getElementById("question-text");
+    // questionEl.textContent = currentQuestion.question;
+
+    // for(var i = 0; i < currentQuestion.choices.length; i++){
+    //     var choicesButton = document.createElement("button");
+    //     choicesButton.textContent = i + 1 + ". " + currentQuestion.choices[i]
+    //     document.getElementById("button-placholder").appendChild(choicesButton);
+        
+    //     if(currentQuestion.choices[i] === currentQuestion.answer){
+    //         choicesButton.setAttribute("id", true);
+    //         choicesButton.setAttribute("class", "rightAnswer")
+    //     }
+    // }
 }
 
 
@@ -79,7 +97,7 @@ startButton.addEventListener("click", function(){
 
 
    // // if right answer
-    // currentquestion by 1
+    // currentcquestion by 1
     // 
 
 
