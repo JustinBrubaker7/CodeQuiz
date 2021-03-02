@@ -18,6 +18,11 @@ var questions = [
         question: "How do you call a function?",
         choices:["functionName()", "functionName[]", "functionName.call", "functionName{}"],
         answer: "functionName()",
+    },
+    {
+        question: "",
+        choices: "",
+        answer: ""
     }
 ];
 
@@ -46,7 +51,7 @@ function generateQuestion(){
                 choicesButton.setAttribute("id", true);
                 choicesButton.setAttribute("class", "rightAnswer")
             } else {
-                choicesButton.setAttribute("class", false);
+                choicesButton.setAttribute("class", "false");
             }
         }
 
@@ -57,11 +62,14 @@ function generateQuestion(){
         var AnswerAttr = answerEl.getAttributeNode("id").value;
             if(AnswerAttr){
                 generateNextQuestion();
+            } else{
+                return;
             }
         })
 
 
     }
+
 
 
 function generateNextQuestion(){
@@ -71,13 +79,50 @@ function generateNextQuestion(){
     generateQuestion();
 }
 
+
+//subtract score function and error notification for wrong answer
+
+// function subtractScore(){
+//     var wrongAnswerEL = document.getElementsByClassName("false");
+
+//     wrongAnswerEL.addEventListener("click", function(){ 
+//         var wrongAnswerAtt = wrongAnswerEL.getAttributeNode("class").value;
+//             if(wrongAnswerAtt.event.target.value){
+//                 alert("wrong answer")
+//             } 
+//         })
+//         console.log(wrongAnswerAtt)
+        
+
+// }
+
+
+
+
+
+
+
+
 startButton.addEventListener("click", function(){
     generateQuestion();
     startButton.style.display = "none";
 
-    //TODO : startTimer();
+    var timeLeft = 30;
+    var elem = document.getElementById('timer-counter');
+    var timerId = setInterval(startTimer, 1000);
+    
+    function startTimer() {
+      if (timeLeft == -1) {
+        clearTimeout(timerId);
+        //doSomething();
+      } else {
+        elem.innerHTML = timeLeft + ' seconds remaining';
+        timeLeft--;
+      }
+    }
+    startTimer();
 })
 
+// function doSomething(){
 
-
-// if event.target == answer then -> do this
+// }
