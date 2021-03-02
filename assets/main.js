@@ -107,14 +107,14 @@ startButton.addEventListener("click", function(){
     generateQuestion();
     startButton.style.display = "none";
 
-    var timeLeft = 30;
+    var timeLeft = 3;
     var elem = document.getElementById('timer-counter');
     var timerId = setInterval(startTimer, 1000);
     
     function startTimer() {
       if (timeLeft == -1) {
         clearTimeout(timerId);
-        //doSomething();
+        doSomething();
       } else {
         elem.innerHTML = timeLeft + ' seconds remaining';
         timeLeft--;
@@ -123,6 +123,8 @@ startButton.addEventListener("click", function(){
     startTimer();
 })
 
-// function doSomething(){
-
-// }
+function doSomething(){
+ document.getElementById("game-over").innerHTML = "Game Over";
+ document.getElementById("button-placholder").innerHTML = "";
+ document.getElementById("question-text").innerHTML = "";
+}
