@@ -19,11 +19,11 @@ var questions = [
         choices:["functionName()", "functionName[]", "functionName.call", "functionName{}"],
         answer: "functionName()",
     },
-    {
-        question: "",
-        choices: "",
-        answer: ""
-    }
+    // {
+    //     question: "",
+    //     choices: "",
+    //     answer: ""
+    // }
 ];
 
 var currentQuestionIndex = 0;
@@ -68,16 +68,23 @@ function generateQuestion(){
             }
         })
 
-
+        
     }
 
+    var timeLeft = 30;
 
 //GENERATE NEXT QUESTION FUNCTION
 function generateNextQuestion(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex === questions.length){
+        timeLeft = 0
+
+    } else {
     score += 5;
     scoreKeeper.textContent = score;
-    currentQuestionIndex++;
+
     generateQuestion();
+    }
 }
 
 
@@ -93,6 +100,8 @@ function restart(){
     document.getElementById("button-placholder").innerHTML = "";
     document.getElementById("question-text").innerHTML = "";
     document.getElementById("game-over").innerHTML = "";
+    document.getElementById("coding-title").innerHTML = "Coding Quiz";
+    document.getElementById("leaderBoardForm").innerHTML = "";
     
 }
 
@@ -106,7 +115,7 @@ function wrongAnswer(){
 
 
 //TIMER AND START BUTTON
-var timeLeft = 30;
+
 
 startButton.addEventListener("click", function(){
     generateQuestion();
@@ -120,6 +129,7 @@ startButton.addEventListener("click", function(){
       if (timeLeft == -1) {
         clearTimeout(timerId);
         doSomething();
+
       } else {
         elem.innerHTML = timeLeft + ' seconds remaining';
         timeLeft--;
@@ -129,8 +139,54 @@ startButton.addEventListener("click", function(){
 })
 
 function doSomething(){
- document.getElementById("game-over").innerHTML = "Game Over";
+ document.getElementById("game-over").innerHTML = "YOUR QUIZ IS OVER";
  document.getElementById("button-placholder").innerHTML = "";
  document.getElementById("question-text").innerHTML = "";
+ document.getElementById("coding-title").innerHTML = "";
+ 
 
+ //leader board imput
+//  var leaderBoardInput = document.createElement("input");
+//  var leaderBoardLabel = document.createElement("label");
+    
+//     document.getElementById("game-over").appendChild(leaderBoardInput);
+//     document.getElementById("game-over").appendChild(leaderBoardLabel)
+    GFG_Fun();
+    
 }
+
+// if current question is blank(or at index of 4) then
+//set timer to 0
+//that will trigger the end game funtions
+
+
+
+//generate the ending form
+            function GFG_Fun() { 
+                
+                // Create a form synamically 
+                var form = document.createElement("form"); 
+                form.setAttribute("method", "post"); 
+                form.setAttribute("action", "submit.php"); 
+                form.setAttribute("id", "leaderBoardForm"); 
+  
+                // Create an input element for emailID 
+                var ID = document.createElement("input"); 
+                ID.setAttribute("type", "text"); 
+                ID.setAttribute("name", "Leaderboard"); 
+                ID.setAttribute("placeholder", "Enter your initials"); 
+
+                // Create a submit button 
+                var s = document.createElement("input"); 
+                s.setAttribute("type", "submit"); 
+                s.setAttribute("value", "Submit"); 
+  
+                // Append the email_ID input to the form 
+                form.append(ID);  
+                
+                // Append the button to the form 
+                form.append(s);  
+  
+                document.getElementById("game-over")
+               .appendChild(form); 
+            }

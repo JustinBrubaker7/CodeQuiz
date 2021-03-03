@@ -32,6 +32,7 @@
     flex-direction: column;
     padding: 15px;
     margin-top: 40px;
+    position: relative;
 }
 
 #question-text {
@@ -86,3 +87,16 @@
     color: red;
 }
 
+#leaderBoardForm{
+    position: fixed;
+    right: 50%;
+    bottom: 30%;
+
+    padding: 5px;
+    margin: 10px 5px;
+    color: rgb(228, 228, 228);
+    font-size: 28px;
+
+
+
+}
