@@ -52,6 +52,7 @@ function generateQuestion(){
                 choicesButton.setAttribute("class", "rightAnswer")
             } else {
                 choicesButton.setAttribute("class", "false");
+                choicesButton.setAttribute("onclick", "wrongAnswer()");
             }
         }
 
@@ -71,13 +72,16 @@ function generateQuestion(){
     }
 
 
-
+//GENERATE NEXT QUESTION FUNCTION
 function generateNextQuestion(){
     score += 5;
     scoreKeeper.textContent = score;
     currentQuestionIndex++;
     generateQuestion();
 }
+
+
+//RESTART BUTTON FUNCTION
 
 function restart(){
     score = 0;
@@ -92,12 +96,17 @@ function restart(){
     
 }
 
+function wrongAnswer(){
+    var wrongErrorEl = document.createElement("h1");
+    wrongErrorEl.textContent = "WRONG!";
+    document.getElementById('button-placholder').appendChild(wrongErrorEl);
+    score -= 2;
+    scoreKeeper.textContent = score;
+}
 
 
-
-
+//TIMER AND START BUTTON
 var timeLeft = 30;
-
 
 startButton.addEventListener("click", function(){
     generateQuestion();
@@ -123,4 +132,5 @@ function doSomething(){
  document.getElementById("game-over").innerHTML = "Game Over";
  document.getElementById("button-placholder").innerHTML = "";
  document.getElementById("question-text").innerHTML = "";
+
 }

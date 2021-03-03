@@ -6,6 +6,7 @@
     font-family: sans-serif;
 }
 
+
 #score-title{
     
     display: inline;
@@ -79,7 +80,7 @@
 }
 
 #game-over {
-    font-size: 500%;
+    font-size: 450%;
     margin: 20px;
     font-family:cursive;
     color: red;
