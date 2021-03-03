@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(245, 245, 245);
+    font-family: sans-serif;
+}
+
+#score-title{
+    
+    display: inline;
+    position: absolute;
+    left: 5px;
+    top: 5px;    
+    font-size: 150%;
+}
+
+#timer-counter{
+    display: inline;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 150%;
+    color: rgb(0, 0, 0);
+}
+
+.question-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+#question-text {
+    margin: 10px;
+    font-size: 175%;
+    border-bottom: solid black 2px;
+}
+
+#coding-title{
+    font-size: 300%;
+    margin: 20px;
+    font-family:cursive;
+}
+
+
+
+#button-placholder button,
+#start-button,
+#restart-button {
+    padding: 5px;
+    margin: 10px 5px;
+    background-color: white;
+  color: rgb(0, 0, 0);
+  border: 2px solid #000000;
+  font-weight: 900;
+  font-size: 18px;
+  transition: 0.3s;
+
+
+}
+#button-placholder button:hover,
+#start-button:hover,
+#restart-button:hover {
+    -webkit-box-shadow: 5px 5px 31px 0px rgba(0,0,0,0.21); 
+    box-shadow: 5px 5px 31px 0px rgba(0,0,0,0.21);
+    background-color: rgb(158, 155, 155);
+    color: white;
+    transform: translate(0, -7px);
+    border: 2px solid rgb(179, 179, 179);
+}
+
+#restart-button {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+
+#game-over {
+    font-size: 500%;
+    margin: 20px;
+    font-family:cursive;
+    color: red;
+}
+

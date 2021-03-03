@@ -79,35 +79,31 @@ function generateNextQuestion(){
     generateQuestion();
 }
 
-
-//subtract score function and error notification for wrong answer
-
-// function subtractScore(){
-//     var wrongAnswerEL = document.getElementsByClassName("false");
-
-//     wrongAnswerEL.addEventListener("click", function(){ 
-//         var wrongAnswerAtt = wrongAnswerEL.getAttributeNode("class").value;
-//             if(wrongAnswerAtt.event.target.value){
-//                 alert("wrong answer")
-//             } 
-//         })
-//         console.log(wrongAnswerAtt)
-        
-
-// }
+function restart(){
+    score = 0;
+    scoreKeeper.textContent = score;
+    currentQuestionIndex = 0;
+    generateQuestion();
+    timeLeft = 30;
+    startButton.style.display = "";
+    document.getElementById("button-placholder").innerHTML = "";
+    document.getElementById("question-text").innerHTML = "";
+    document.getElementById("game-over").innerHTML = "";
+    
+}
 
 
 
 
 
-
+var timeLeft = 30;
 
 
 startButton.addEventListener("click", function(){
     generateQuestion();
     startButton.style.display = "none";
 
-    var timeLeft = 3;
+
     var elem = document.getElementById('timer-counter');
     var timerId = setInterval(startTimer, 1000);
     

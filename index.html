@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <h3 id="score"></h3>
+    <h3 id="score-title" >Score:<span id="score"></span></h3>
+    <button id="restart-button" onclick="restart()">RESTART</button>
     <h3 id="timer-counter"></h3>
-    <h1>Coding Quiz</h1>
+    <div class="question-container">
+    <h1 id="coding-title">Coding Quiz</h1>
 
     <h2 id="question-text"></h2>
     <button id="start-button" type="button">START</button>
@@ -17,6 +20,7 @@
     <div id="button-placholder"></div>
 
 <h1 id="game-over"></h1>
+</div>
 </body>
 <script src="assets/main.js"></script>
 </html>
