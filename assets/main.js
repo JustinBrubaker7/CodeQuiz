@@ -62,6 +62,8 @@ function generateQuestion(){
         answerEl.addEventListener("click", function(){ 
         var AnswerAttr = answerEl.getAttributeNode("id").value;
             if(AnswerAttr){
+                score += 5;
+                scoreKeeper.textContent = score;
                 generateNextQuestion();
             } else{
                 return;
@@ -77,12 +79,10 @@ function generateQuestion(){
 function generateNextQuestion(){
     currentQuestionIndex++;
     if(currentQuestionIndex === questions.length){
-        timeLeft = 0
+        timeLeft = -1;
+        document.getElementById("timer-counter").innerHTML = "";
 
     } else {
-    score += 5;
-    scoreKeeper.textContent = score;
-
     generateQuestion();
     }
 }
@@ -111,6 +111,7 @@ function wrongAnswer(){
     document.getElementById('button-placholder').appendChild(wrongErrorEl);
     score -= 2;
     scoreKeeper.textContent = score;
+    timeLeft -= 5;
 }
 
 
@@ -126,7 +127,7 @@ startButton.addEventListener("click", function(){
     var timerId = setInterval(startTimer, 1000);
     
     function startTimer() {
-      if (timeLeft == -1) {
+      if (timeLeft <= -1) {
         clearTimeout(timerId);
         doSomething();
 
