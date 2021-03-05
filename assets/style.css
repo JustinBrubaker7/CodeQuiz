@@ -100,3 +100,33 @@
 
 
 }
+
+#leaderboardForm,
+#leader-title {
+    display: none;
+}
+
+#leader-div{
+    margin: 20px;
+    padding: 10px;
+    border: solid black 2px;
+
+}
+
+#leaderboard h5{
+    font-size: 24px;
+    display: inline;
+    width: 50%;
+    margin-top: 7px;
+}
+
+#leaderboard h6{
+    border-bottom: solid lightgray 3px;
+    font-size: 16px;
+
+    width: 50%;
+}
+
+#leader-title{
+    border-bottom: solid gray 1px;
+}
