@@ -9,21 +9,21 @@ var questions = [
         choices:["h3", "h2", "h1", "h4"],
         answer: "h1",
     },
-    // {
-    //     question: "How many line of code is the longest program?",
-    //     choices:["100 lines", "2 trillion", "77 thousand", "3300 billion lines"],
-    //     answer: "3300 billion lines",
-    // },
-    // {
-    //     question: "How do you call a function?",
-    //     choices:["functionName()", "functionName[]", "functionName.call", "functionName{}"],
-    //     answer: "functionName()",
-    // },
-    // {
-    //     question: "Can you nest a function, in a funciton ",
-    //     choices: ["Yes", "No"],
-    //     answer: "Yes"
-    // }
+    {
+        question: "How many line of code is the longest program?",
+        choices:["100 lines", "2 trillion", "77 thousand", "3300 billion lines"],
+        answer: "3300 billion lines",
+    },
+    {
+        question: "How do you call a function?",
+        choices:["functionName()", "functionName[]", "functionName.call", "functionName{}"],
+        answer: "functionName()",
+    },
+    {
+        question: "Can you nest a function, in a funciton ",
+        choices: ["Yes", "No"],
+        answer: "Yes"
+    }
 ];
 
 document.getElementById("leader-div").style.display = "none";
