@@ -1,17 +1,17 @@
 var questions = [
     {
-        question: "What is the best framework?",
+        question: "What is the best javascript framework?",
         choices:["react", "angular", "vue", "svelte"],
         answer: "react",
     },
     {
         question: "What tag is the largest?",
-        choices:["h1", "h2", "h3", "h4"],
+        choices:["h3", "h2", "h1", "h4"],
         answer: "h1",
     },
     {
         question: "How many line of code is the longest program?",
-        choices:["3300 billion lines", "100 lines", "2 trillion", "77 thousand"],
+        choices:["100 lines", "2 trillion", "77 thousand", "3300 billion lines"],
         answer: "3300 billion lines",
     },
     {
@@ -19,11 +19,11 @@ var questions = [
         choices:["functionName()", "functionName[]", "functionName.call", "functionName{}"],
         answer: "functionName()",
     },
-    // {
-    //     question: "",
-    //     choices: "",
-    //     answer: ""
-    // }
+    {
+        question: "Can you nest a function, in a funciton ",
+        choices: ["Yes", "No"],
+        answer: "Yes"
+    }
 ];
 
 var currentQuestionIndex = 0;
@@ -116,7 +116,6 @@ function wrongAnswer(){
 
 
 //TIMER AND START BUTTON
-
 
 startButton.addEventListener("click", function(){
     generateQuestion();
