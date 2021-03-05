@@ -213,13 +213,15 @@ function doSomething(){
                     userData.score = score;
 
                     //var play = JSON.parse(players)
-                    var playersJson = JSON.stringify(players)
-                    JSON.parse(window.localStorage.getItem("players"))
-                    // console.log(userData)
+                    var getPlayers = JSON.parse(window.localStorage.getItem("players"))
+
+                    players = getPlayers
+                    
                     players.push(userData);
 
-                    window.localStorage.setItem("players", playersJson);
-                console.log(players)
+                    window.localStorage.setItem("players", JSON.stringify(players));
+                    
+
 
 
                     for(var i = 0; i < players.length; i++){
